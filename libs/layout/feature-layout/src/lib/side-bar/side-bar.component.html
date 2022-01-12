@@ -1,0 +1,16 @@
+<div class='wrapper'>
+  <div class='search'>
+    <div>
+      search🔍
+
+    </div>
+    <input type='text'>
+  </div>
+  <ng-container *ngIf='features$| async as features'>
+
+    <div class='feature' *ngFor='let f of features'>
+      {{f.label}}
+    </div>
+  </ng-container>
+
+</div>

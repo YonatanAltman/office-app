@@ -1,0 +1,12 @@
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 200px;
+  background: darkgreen;
+  .feature{
+    height: 100px;
+    width: 200px;
+    color:white;
+    font-family: Roboto ,sans-serif;
+  }
+}

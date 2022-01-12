@@ -1,9 +1,12 @@
-docker ps -a
+# Docker
 
-docker images
+###### Docker containers
+`docker ps -a`
 
-docker pull nginx:alpine
+###### Gwr docker images
+`docker pull nginx:alpine`
 
-docker run -d -p 9090:80 nginx:alpine --name my-first-docker
-
-docker run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx:alpine
+###### Run a nginx alpine version
+`docker run -d -p 9090:80 nginx:alpine`
+###### Run angular inside the docker
+`docker run -d -p 4200:80 -v $(pwd):/usr/share/nginx/html nginx:alpine`
