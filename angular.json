@@ -119,6 +119,58 @@
       },
       "tags": [],
       "implicitDependencies": ["client"]
+    },
+    "office-server": {
+      "root": "apps/office-server",
+      "sourceRoot": "apps/office-server/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/office-server",
+            "main": "apps/office-server/src/main.ts",
+            "tsConfig": "apps/office-server/tsconfig.app.json",
+            "assets": ["apps/office-server/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/office-server/src/environments/environment.ts",
+                  "with": "apps/office-server/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "office-server:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/office-server/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/office-server"],
+          "options": {
+            "jestConfig": "apps/office-server/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
     }
   }
 }
