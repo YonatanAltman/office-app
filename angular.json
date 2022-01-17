@@ -119,6 +119,32 @@
       },
       "tags": [],
       "implicitDependencies": ["client"]
+    },
+    "layout-feature-layout": {
+      "projectType": "library",
+      "root": "libs/layout/feature-layout",
+      "sourceRoot": "libs/layout/feature-layout/src",
+      "prefix": "layout",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/layout/feature-layout"],
+          "options": {
+            "jestConfig": "libs/layout/feature-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/layout/feature-layout/src/**/*.ts",
+              "libs/layout/feature-layout/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:layout", "type:feature"]
     }
   }
 }
